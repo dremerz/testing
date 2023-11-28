@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Calculator</title>
+    <style>
+      /* Add your CSS code here */
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        background-color: #f5f5f5;
+        width: 300px;
+        margin: auto;
+      }
+
+      input[type="text"] {
+        grid-column: 1 / -1;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 18px;
+        text-align: right;
+        border: none;
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #f5f5f5;
+      }
+
+      button:active {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      button.operator {
+        background-color: #f5f5f5;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+      }
+
+      button.operator:hover {
+        background-color: #e5e5e5;
+      }
+
+      button.operator:active {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      button.clear {
+        background-color: #f44336;
+        color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      button.clear:hover {
+        background-color: #d32f2f;
+      }
+
+      button.clear:active {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+
+<br>
+<center>
+
+<p>
+Aravind Calculator</p>
+</cenyter>
+<br>
+<br>
+    <div class="calculator">
+      <input type="text" id="result" disabled />
+      <button onclick="clearResult()" class="clear">C</button>
+      <button onclick="backspace()" class="clear">CE</button>
+      <button onclick="insert('+')" class="operator">+</button>
+      <button onclick="insert('-')" class="operator">-</button>
+      <button onclick="insert('*')" class="operator">*</button>
+      <button onclick="insert('/')" class="operator">/</button>
+      <button onclick="insert('7')">7</button>
+      <button onclick="insert('8')">8</button>
+      <button onclick="insert('9')">9</button>
+      <button onclick="insert('4')">4</button>
+      <button onclick="insert('5')">5</button>
+      <button onclick="insert('6')">6</button>
+      <button onclick="insert('1')">1</button>
+      <button onclick="insert('2')">2</button>
+      <button onclick="insert('3')">3</button>
+      <button onclick="insert('0')">0</button>
+      <button onclick="insert('.')">.</button>
+      <button onclick="calculate()" class="operator">=</button>
+    </div>
+
+    <script>
+      // Add your JavaScript code here
+      let result = document.getElementById("result");
+
+      function insert(num) {
+        result.value += num;
+      }
+
+      function clearResult() {
+        result.value = "";
+      }
+
+      function backspace() {
+        result.value = result.value.slice(0, -1);
+      }
+
+      function calculate() {
+        try {
+          result.value = eval(result.value);
+        } catch (error) {
+          result.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
