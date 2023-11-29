@@ -1,0 +1,1 @@
+import{bB as e,bC as t}from"./entry.bd9d8041.js";const r=e((o,l)=>{console.log("Middleware: default"),t().hook("page:finish",()=>{history.state.scroll?setTimeout(()=>document.getElementById("__nuxt").scrollTo(history.state.scroll),0):setTimeout(()=>document.getElementById("__nuxt").scrollTo(0,0),0)})});export{r as default};
